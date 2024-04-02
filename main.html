@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Флеш-карточки</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<!-- Добавим в разметку раздел для выбора папки -->
+<div id="folderSelection" style="display:none;">
+    <select id="folderList">
+        <option value="">Выберите папку</option>
+        <!-- Сюда будут добавляться папки через JavaScript -->
+    </select>
+    <button id="openFolderBtn" class="action-btn">Открыть</button>
+    <!-- Добавляем кнопку для просмотра статистики -->
+    <button id="viewStatisticsBtn" class="action-btn">Статистика</button>
+</div>
+
+<div id="menu">
+    <button id="createFolderBtn" class="action-btn">Создать папку</button>
+    <button id="selectFolderBtn" class="action-btn">Выбрать папку</button>
+    <button id="saveDataBtn" class="action-btn">Сохранить данные</button>
+    <label for="loadDataInput" class="action-btn">Загрузить данные</label>
+    <input type="file" id="loadDataInput" accept=".json" style="display: none;">
+</div>
+
+
+<div id="createQuestion" style="display: none;">
+    <input type="text" id="questionInput" placeholder="Вопрос">
+    <input type="text" id="answerInput" placeholder="Ответ">
+    <input type="file" id="imageInput" accept="image/*" multiple> <!-- Элемент для загрузки изображений -->
+    <button id="saveQuestionBtn" class="action-btn">Сохранить вопрос</button>
+    <button id="startStudyingBtn" class="action-btn">Начать изучение</button>
+    <button id="backToMenuBtn2" class="action-btn">Назад к меню</button>
+</div>
+
+<div id="folderContents" style="display: none;">
+    <h2 class="text_sodershimy_papki">Содержимое папки: <span id="currentFolderName"></span></h2>
+    <ul id="questionsList"></ul> <!-- Список вопросов -->
+    <button id="deleteFolderBtn" class="action-btn">Удалить текущую папку</button>
+    <button id="backToMenuBtn" class="action-btn">Назад к меню</button>
+</div>
+
+<div id="studyMode" style="display: none;">
+    <div id="flashcard">
+        <div id="cardQuestion"></div>
+        <button id="showAnswerBtn" class="action-btn">Проверить</button>
+        <div id="cardAnswer" style="display: none;"></div>
+        <!-- Добавлен контейнер для кнопок ответов -->
+        <div id="responseButtons">
+            <button id="correctBtn" class="responseBtn">&#10004;</button> <!-- Галочка -->
+            <button id="incorrectBtn" class="responseBtn">&#10006;</button> <!-- Крестик -->
+        </div>
+    </div>
+    <button id="endStudySessionBtn" class="action-btn">Закончить обучение</button>
+</div>
+
+<div id="statistics" style="display: none;">
+    <h2>Статистика по папке: <span id="statisticsFolderName"></span></h2>
+    <ul id="statisticsList"></ul> <!-- Список для статистики -->
+    <button id="backToMenuBtnFromStatistics" class="action-btn">Назад к меню</button>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

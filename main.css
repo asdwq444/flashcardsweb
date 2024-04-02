@@ -1,0 +1,305 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100vw; /* Ширина экрана */
+    height: 100vh; /* Высота экрана */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1548%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='url(%26quot%3b%23SvgjsLinearGradient1549%26quot%3b)'%3e%3c/rect%3e%3cpath d='M1440 0L1045.1399999999999 0L1440 128.72z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M1045.1399999999999 0L1440 128.72L1440 191.38L639.4799999999998 0z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M639.48 0L1440 191.38L1440 249.18L457.68 0z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M457.68000000000006 0L1440 249.18L1440 280.05L206.99000000000007 0z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M0 560L341.6 560L0 376.7z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M0 376.7L341.6 560L691.98 560L0 228.48999999999998z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M0 228.49L691.98 560L1103.39 560L0 120.26z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M0 120.25999999999999L1103.39 560L1137.3000000000002 560L0 75.35z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1548'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='15.28%25' y1='-39.29%25' x2='84.72%25' y2='139.29%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1549'%3e%3cstop stop-color='rgba(0%2c 0%2c 0%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(21%2c 41%2c 30%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; /* Центрирование фона */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#menu, #createQuestion, #studyMode, #folderSelection, #dataControls, #folderContents {
+    width: 90%;
+    max-width: 600px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    box-shadow: 0px 13px 6.2px 0px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(50.849998474121094px);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 10px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+
+
+input[type="text"], select, input[type="file"], .menu-btn, .action-btn, .responseBtn, label {
+    margin: 10px 0;
+    padding: 10px;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+input[type="file"] {
+    border: 1px solid #ccc;
+    display: block;
+    cursor: pointer;
+}
+
+.menu-btn {
+    width: 180px; /* Фиксированная ширина */
+    padding: 10px 15px; /* Унифицированный padding */
+    box-sizing: border-box; /* Гарантирует, что padding включен в ширину */
+    margin: 5px; /* Обеспечивает небольшой отступ между кнопками */
+}
+
+#responseButtons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Отступ между кнопками */
+}
+
+.responseBtn {
+    margin: 0; /* Убираем верхний отступ */
+}
+
+.action-btn{
+    font-size: 1rem;
+}
+
+.responseBtn {
+    margin-top: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+#correctBtn, #incorrectBtn {
+    border: 2px solid; /* Контур кнопки */
+    color: transparent; /* Сделаем текст прозрачным */
+    background-size: 25px; /* Размер иконки внутри кнопки */
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-color 0.2s, color 0.2s; /* Плавное изменение стилей */
+}
+
+#correctBtn {
+    border-color: #28a745; /* Зелёный контур */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%2328a745" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.485 1.55 5.5 9.535 2.515 6.55l-.708.707L5.5 10.95l8.671-8.671z"/></svg>'); /* Галочка */
+}
+
+#incorrectBtn {
+    border-color: #dc3545; /* Красный контур */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23dc3545" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.343 13.657 13.657 2.343l.707.707-11.314 11.314z"/><path d="M13.657 13.657 2.343 2.343l.707-.707 11.314 11.314z"/></svg>'); /* Крестик */
+}
+
+#correctBtn:hover, #incorrectBtn:hover {
+    color: white; /* Изменение цвета текста (иконки) при наведении */
+    background-color: #28a745; /* Зелёный фон для галочки */
+}
+
+#incorrectBtn:hover {
+    background-color: #dc3545; /* Красный фон для крестика */
+}
+
+
+.menu-btn:hover, .action-btn:hover, .responseBtn:hover, label:hover {
+    background-color: #15640b;
+    border: 2px solid rgba(255, 255, 255, 0.228); /* Белая граница */
+}
+
+.action-btn {
+    background-color: rgb(23, 174, 102); /* Красный цвет кнопки */
+    color: rgb(0, 0, 0); /* Белый цвет текста */
+    border: 2px solid rgb(17, 138, 1); /* Белая граница */
+    border-radius: 12px; /* Скругленные углы */
+    padding: 10px 15px; /* Внутренние отступы */
+    margin: 10px; /* Внешний отступ */
+    font-size: 1rem; /* Размер шрифта */
+    cursor: pointer; /* Курсор в виде указателя */
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s; /* Плавное изменение цвета при наведении */
+    text-align: center; /* Выравнивание текста по центру */
+    text-decoration: none; /* Убрать подчеркивание текста */
+    display: inline-block; /* Сделать кнопку строчно-блочным элементом */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень кнопки */
+    width: 250px; /* Ширина по содержимому */
+}
+
+.action-btn:hover {
+    background-color: #beb2b200; /* Цвет фона при наведении */
+    border: 2px solid rgb(23, 174, 102); /* Белая граница */
+    color:rgb(23, 174, 102); /* Цвет текста при наведении */
+}
+
+
+#cardQuestion, #cardAnswer, #cardImageContainer {
+    color:rgb(249, 249, 249);
+    border: 2px solid rgb(23, 174, 102);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f900;
+    width: auto;
+    max-width: 90%;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 0 auto; /* Автоматические отступы слева и справа */
+}
+
+#cardImage {
+    max-height: 200px;
+    max-width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#folderContents ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 400px; /* Определите максимальную высоту */
+    overflow-y: auto; /* Добавьте прокрутку для переполнения содержимого */
+    /* Чтобы контент не прилипал к краям, можно добавить немного внутренних отступов */
+    padding-right: 15px; 
+    margin-right: -15px; /* Уравновесьте вышеуказанный отступ, чтобы избежать смещения содержимого */
+}
+
+#folderContents li {
+    margin: 10px 0;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+#folderContents button {
+    margin-left: 10px;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.carousel-image {
+    max-width: 100%;
+    display: none; /* Изначально все изображения скрыты */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 100;
+}
+
+.carousel button:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.carousel button:disabled {
+    background-color: rgba(0,0,0,0.3);
+}
+
+.carousel button:nth-child(1) { /* Кнопка предыдущего изображения */
+    left: 10px;
+}
+
+.carousel button:nth-child(3) { /* Кнопка следующего изображения */
+    right: 10px;
+}
+
+#viewStatisticsBtn, #endStudySessionBtn {
+    margin-top: 20px;
+}
+
+/* Стили для раздела статистики */
+#statistics {
+    width: 90%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#statisticsList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto; /* Добавляем вертикальный скролл */
+    max-height: 300px; /* Ограничиваем высоту для активации скролла */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#statisticsList li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+.text_sodershimy_papki {
+    color: rgb(23, 174, 102);
+}
